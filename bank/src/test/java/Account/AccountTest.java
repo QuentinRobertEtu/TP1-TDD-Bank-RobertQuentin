@@ -17,7 +17,13 @@ public class AccountTest {
 	
 	@Test
 	public void TestDebitAndCreditAt0WhenAccountCreated() {
-		assertEquals(this.compte.getCredit(),0);
-		assertEquals(this.compte.getDebit(),0);
+		assertEquals(this.compte.getCredit(), 0, 0);
+		assertEquals(this.compte.getDebit(), 0, 0);
+	}
+	
+	@Test
+	public void TestIfAccountIsCredited() {
+		this.compte.AddCredit(500.0);
+		
 	}
 }

@@ -3,8 +3,8 @@ package Account;
 public class Account {
 	
 	private String owner;
-	private int debit;
-	private int credit;
+	private float debit;
+	private float credit;
 	
 	public Account(String name) {
 		this.owner = name;
@@ -12,11 +12,11 @@ public class Account {
 		this.debit = 0;
 	}
 
-	public int getDebit() {
+	public float getDebit() {
 		return this.debit;
 	}
 	
-	public int getCredit() {
+	public float getCredit() {
 		return this.credit;
 	}
 }
