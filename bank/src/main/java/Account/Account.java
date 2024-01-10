@@ -18,11 +18,19 @@ public class Account {
 		return this.credit;
 	}
 	
-	public void creditAccount(double d) {
+	public void creditAccount(double d) throws CantCreditNegativeValueException {
+		if (d<0) {
+			throw new CantCreditNegativeValueException();
+		} else {
 		this.credit+= d;
+		}
 	}
 	
-	public void debitAccount(double d) {
+	public void debitAccount(double d) throws CantDebitNegativeValueException{
+		if (d <0) {
+			throw new CantDebitNegativeValueException();
+		} else {
 		this.debit+= d;
+		}
 	}
 }
