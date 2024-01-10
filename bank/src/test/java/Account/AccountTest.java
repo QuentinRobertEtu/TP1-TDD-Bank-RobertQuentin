@@ -29,8 +29,8 @@ public class AccountTest {
 	
 	@Test
 	public void TestIfAccountIsDebited() {
-		assertEquals(this.compte.getCredit(), 0, 0);
-		this.compte.creditAccount(500.0);
-		assertEquals(this.compte.getCredit(), 500.0, 0);
+		assertEquals(this.compte.getDebit(), 0, 0);
+		this.compte.debitAccount(500.0);
+		assertEquals(this.compte.getDebit(), 500.0, 0);
 	}
 }
