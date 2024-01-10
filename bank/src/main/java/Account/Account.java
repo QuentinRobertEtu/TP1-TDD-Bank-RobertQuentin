@@ -36,4 +36,8 @@ public class Account {
 		this.debit+= d;
 		}
 	}
+
+	public double getPay() {
+		return this.credit - this.debit; 
+	}
 }

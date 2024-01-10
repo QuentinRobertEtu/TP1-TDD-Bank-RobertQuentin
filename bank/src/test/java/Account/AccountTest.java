@@ -49,7 +49,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void TestIfPayIsGoodWhenCreditedAndDebited() {
+	public void TestIfPayIsGoodWhenCreditedAndDebited() throws CantCreditNegativeValueException, CantDebitNegativeValueException {
 		this.compte.creditAccount(1000);
 		this.compte.debitAccount(300);
 		this.compte.debitAccount(100);
