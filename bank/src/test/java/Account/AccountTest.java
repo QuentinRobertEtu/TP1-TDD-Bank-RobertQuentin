@@ -1,6 +1,7 @@
 package Account;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,4 +34,15 @@ public class AccountTest {
 		this.compte.debitAccount(500.0);
 		assertEquals(this.compte.getDebit(), 500.0, 0);
 	}
+	
+	@Test
+	public void TestIfNegatifThrowsExceptionWhenCredited() throws CantCreditNegativeValueException {
+		assertThrows(CantCreditNegativeValueException.class, () -> {this.compte.creditAccount(-500.0);});
+	}
+	
+	@Test
+	public void TestIfNegatifThrowsExceptionWhenDebited() throws CantDebitNegativeValueException {
+		assertThrows(CantDebitNegativeValueException.class, () -> {this.compte.debitAccount(-500.0);});
+	}
+	
 }
