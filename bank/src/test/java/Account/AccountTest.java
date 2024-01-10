@@ -6,6 +6,9 @@ import static org.junit.Assert.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Exception.CantCreditNegativeValueException;
+import Exception.CantDebitNegativeValueException;
+
 public class AccountTest {
 	
 	private Account compte;

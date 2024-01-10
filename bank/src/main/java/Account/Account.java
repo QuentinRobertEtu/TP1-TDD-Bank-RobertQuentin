@@ -1,5 +1,8 @@
 package Account;
 
+import Exception.CantCreditNegativeValueException;
+import Exception.CantDebitNegativeValueException;
+
 public class Account {
 	
 	private double debit;
