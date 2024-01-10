@@ -14,7 +14,6 @@ public class AccountTest {
 		this.compte = new Account("a");
 	}
 	
-	
 	@Test
 	public void TestDebitAndCreditAt0WhenAccountCreated() {
 		assertEquals(this.compte.getCredit(), 0, 0);
