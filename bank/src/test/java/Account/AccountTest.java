@@ -54,7 +54,7 @@ public class AccountTest {
 		this.compte.debitAccount(300);
 		this.compte.debitAccount(100);
 		this.compte.creditAccount(500);
-		assertEquals(this.compte.getPay(), 1500-400, 0);
+		assertEquals(this.compte.solde(), 1500-400, 0);
 	}
 	
 }
