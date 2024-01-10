@@ -48,4 +48,13 @@ public class AccountTest {
 		assertThrows(CantDebitNegativeValueException.class, () -> {this.compte.debitAccount(-500.0);});
 	}
 	
+	@Test
+	public void TestIfPayIsGoodWhenCreditedAndDebited() {
+		this.compte.creditAccount(1000);
+		this.compte.debitAccount(300);
+		this.compte.debitAccount(100);
+		this.compte.creditAccount(500);
+		assertEquals(this.compte.getPay(), 1500-400, 0);
+	}
+	
 }
