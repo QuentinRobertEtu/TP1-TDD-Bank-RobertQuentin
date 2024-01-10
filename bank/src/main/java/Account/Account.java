@@ -21,4 +21,8 @@ public class Account {
 	public void creditAccount(double d) {
 		this.credit+= d;
 	}
+	
+	public void debitAccount(double d) {
+		this.debit+= d;
+	}
 }
