@@ -4,6 +4,7 @@ import Exception.CantCreditNegativeValueException;
 import Exception.CantCreditOver100000Exception;
 import Exception.CantDebitNegativeValueException;
 import Exception.CantDebitOver100000Exception;
+import Exception.SoldeInferiorThanDebitException;
 
 import java.util.*;
 
@@ -45,7 +46,7 @@ public class Account {
 		}
 	}
 	
-	public void debitAccount(double d) throws CantDebitNegativeValueException, CantDebitOver100000Exception{
+	public void debitAccount(double d) throws CantDebitNegativeValueException, CantDebitOver100000Exception, SoldeInferiorThanDebitException{
 		if (d<=0) {
 			throw new CantDebitNegativeValueException();
 		} else if (d > 100000) {

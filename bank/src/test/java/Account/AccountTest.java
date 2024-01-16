@@ -9,6 +9,7 @@ import Exception.CantCreditNegativeValueException;
 import Exception.CantCreditOver100000Exception;
 import Exception.CantDebitNegativeValueException;
 import Exception.CantDebitOver100000Exception;
+import Exception.SoldeInferiorThanDebitException;
 
 public class AccountTest {
 	
@@ -33,7 +34,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void TestIfAccountIsDebited() throws CantDebitNegativeValueException, CantDebitOver100000Exception {
+	public void TestIfAccountIsDebited() throws CantDebitNegativeValueException, CantDebitOver100000Exception, SoldeInferiorThanDebitException {
 		assertEquals(this.compte.getDebit(), 0, 0);
 		this.compte.debitAccount(500.0);
 		assertEquals(this.compte.getDebit(), 500.0, 0);
@@ -50,7 +51,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void TestIfPayIsGoodWhenCreditedAndDebited() throws CantCreditNegativeValueException, CantDebitNegativeValueException, CantCreditOver100000Exception, CantDebitOver100000Exception {
+	public void TestIfPayIsGoodWhenCreditedAndDebited() throws CantCreditNegativeValueException, CantDebitNegativeValueException, CantCreditOver100000Exception, CantDebitOver100000Exception, SoldeInferiorThanDebitException {
 		this.compte.creditAccount(1000);
 		this.compte.debitAccount(300);
 		this.compte.debitAccount(100);
@@ -96,7 +97,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void TestIfDebitOver100000ThrowException() throws CantDebitOver100000Exception, CantDebitNegativeValueException {
+	public void TestIfDebitOver100000ThrowException() throws CantDebitOver100000Exception, CantDebitNegativeValueException, SoldeInferiorThanDebitException {
 		this.compte.debitAccount(100000);
 		assertThrows(CantDebitOver100000Exception.class, () -> {this.compte.debitAccount(100001);});
 	}

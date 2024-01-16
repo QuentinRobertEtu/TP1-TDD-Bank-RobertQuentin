@@ -1,5 +1,6 @@
 package Account;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +10,7 @@ import Exception.CantCreditNegativeValueException;
 import Exception.CantCreditOver100000Exception;
 import Exception.CantDebitNegativeValueException;
 import Exception.CantDebitOver100000Exception;
+import Exception.SoldeInferiorThanDebitException;
 
 public class SavingsAccountTest{
 	
@@ -48,8 +50,7 @@ private Account compte;
 	*/
 	
 	@Test
-	public void TestIfNothingChangeWhenDebitAValueSuperiorToPay() throws CantCreditNegativeValueException, CantCreditOver100000Exception, CantDebitNegativeValueException, CantDebitOver100000Exception {
+	public void TestIfExceptionThrowsWhenDebitAValueSuperiorToPay() {
 		assertThrows(SoldeInferiorThanDebitException.class, () -> {this.compte.debitAccount(500.0);});
-		
 	}
 }
