@@ -78,4 +78,13 @@ public class AccountTest {
 		assertEquals(20, this.compte.getListCredit().get(0), 0);
 	}
 	
+	@Test
+	public void TestIfCredit0ThrowException() throws CantCreditNegativeValueException {
+		assertThrows(CantCreditNegativeValueException.class, () -> {this.compte.creditAccount(0);});
+	}
+	
+	@Test
+	public void TestIfDebit0ThrowException() throws CantDebitNegativeValueException {
+		assertThrows(CantDebitNegativeValueException.class, () -> {this.compte.debitAccount(0);});
+	}
 }
