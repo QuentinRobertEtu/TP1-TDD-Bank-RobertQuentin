@@ -1,7 +1,10 @@
 package Account;
 
 import Exception.CantCreditNegativeValueException;
+import Exception.CantCreditOver100000Exception;
 import Exception.CantDebitNegativeValueException;
+import Exception.CantDebitOver100000Exception;
+
 import java.util.*;
 
 public class Account {
@@ -32,19 +35,23 @@ public class Account {
 		return cred;
 	}
 	
-	public void creditAccount(double d) throws CantCreditNegativeValueException {
+	public void creditAccount(double d) throws CantCreditNegativeValueException, CantCreditOver100000Exception {
 		if (d<=0) {
 			throw new CantCreditNegativeValueException();
+		} else if (d > 100000) {
+			throw new CantCreditOver100000Exception();
 		} else {
 		this.addCreditToList(d);
 		}
 	}
 	
-	public void debitAccount(double d) throws CantDebitNegativeValueException{
+	public void debitAccount(double d) throws CantDebitNegativeValueException, CantDebitOver100000Exception{
 		if (d<=0) {
 			throw new CantDebitNegativeValueException();
+		} else if (d > 100000) {
+			throw new CantDebitOver100000Exception();
 		} else {
-		this.addDebitToList(d);
+			this.addDebitToList(d);
 		}
 	}
 	
