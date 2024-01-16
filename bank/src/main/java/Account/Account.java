@@ -40,6 +40,14 @@ public class Account {
 		}
 	}
 	
+	public void debitAccount(double d) throws CantDebitNegativeValueException{
+		if (d <0) {
+			throw new CantDebitNegativeValueException();
+		} else {
+		this.addDebitToList(d);
+		}
+	}
+	
 	private void addCreditToList(double d) {
 		if (this.listCredit.size() == this.max_list) {
 			double solde=0;
@@ -50,14 +58,6 @@ public class Account {
 			this.listCredit.add(solde);
 		}
 		this.listCredit.add(d);
-	}
-
-	public void debitAccount(double d) throws CantDebitNegativeValueException{
-		if (d <0) {
-			throw new CantDebitNegativeValueException();
-		} else {
-		this.addDebitToList(d);
-		}
 	}
 
 	private void addDebitToList(double d) {
