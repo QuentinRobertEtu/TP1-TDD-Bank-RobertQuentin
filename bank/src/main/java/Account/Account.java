@@ -33,7 +33,7 @@ public class Account {
 	}
 	
 	public void creditAccount(double d) throws CantCreditNegativeValueException {
-		if (d<0) {
+		if (d<=0) {
 			throw new CantCreditNegativeValueException();
 		} else {
 		this.addCreditToList(d);
@@ -41,7 +41,7 @@ public class Account {
 	}
 	
 	public void debitAccount(double d) throws CantDebitNegativeValueException{
-		if (d <0) {
+		if (d<=0) {
 			throw new CantDebitNegativeValueException();
 		} else {
 		this.addDebitToList(d);
