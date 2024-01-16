@@ -1,13 +1,14 @@
 package Account;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Exception.CantCreditNegativeValueException;
 import Exception.CantCreditOver100000Exception;
+import Exception.CantDebitNegativeValueException;
+import Exception.CantDebitOver100000Exception;
 
 public class SavingsAccountTest{
 	
@@ -36,5 +37,11 @@ private Account compte;
 		this.compte.creditAccount(500.0);
 		this.compte.creditAccount(500.0);
 		assertEquals(this.compte.solde(), 1000.0, 0);
+	}
+	
+	@Test
+	public void TestIfNothingChangeWhenDebitAValueSuperiorToPay() throws CantCreditNegativeValueException, CantCreditOver100000Exception, CantDebitNegativeValueException, CantDebitOver100000Exception {
+		this.compte.debitAccount(500.0);
+		assertEquals(this.compte.solde(), 0, 0);
 	}
 }

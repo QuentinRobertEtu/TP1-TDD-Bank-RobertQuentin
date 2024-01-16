@@ -67,7 +67,7 @@ public class Account {
 		this.listCredit.add(d);
 	}
 
-	private void addDebitToList(double d) {
+	protected void addDebitToList(double d) {
 		if (this.listDebit.size() == this.max_list) {
 			double solde=0;
 			for (double c : this.listDebit) {
