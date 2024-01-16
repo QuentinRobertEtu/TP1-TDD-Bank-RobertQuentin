@@ -12,7 +12,7 @@ private Account compte;
 	
 	@BeforeEach
 	public void init() {
-		this.compte = new SavingsAccount(2);
+		this.compte = new SavingsAccount(2, 2);
 	}
 	
 	@Test
