@@ -87,4 +87,16 @@ public class AccountTest {
 	public void TestIfDebit0ThrowException() throws CantDebitNegativeValueException {
 		assertThrows(CantDebitNegativeValueException.class, () -> {this.compte.debitAccount(0);});
 	}
+	
+	@Test
+	public void TestIfCreditOver100000ThrowException() throws CantCreditOver100000Exception {
+		this.compte.creditAccount(100000);
+		assertThrows(CantCreditOver100000Exception.class, () -> {this.compte.creditAccount(100001);});
+	}
+	
+	@Test
+	public void TestIfDebitOver100000ThrowException() throws CantDebitOver100000Exception {
+		this.compte.debitAccount(100000);
+		assertThrows(CantDebitOver100000Exception.class, () -> {this.compte.debitAccount(100001);});
+	}
 }
