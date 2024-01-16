@@ -39,9 +39,17 @@ private Account compte;
 		assertEquals(this.compte.solde(), 1000.0, 0);
 	}
 	
+	/*
 	@Test
 	public void TestIfNothingChangeWhenDebitAValueSuperiorToPay() throws CantCreditNegativeValueException, CantCreditOver100000Exception, CantDebitNegativeValueException, CantDebitOver100000Exception {
 		this.compte.debitAccount(500.0);
 		assertEquals(this.compte.solde(), 0, 0);
+	}
+	*/
+	
+	@Test
+	public void TestIfNothingChangeWhenDebitAValueSuperiorToPay() throws CantCreditNegativeValueException, CantCreditOver100000Exception, CantDebitNegativeValueException, CantDebitOver100000Exception {
+		assertThrows(SoldeInferiorThanDebitException.class, () -> {this.compte.debitAccount(500.0);});
+		
 	}
 }
