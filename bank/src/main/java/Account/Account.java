@@ -93,10 +93,14 @@ public class Account {
 		return this.listCredit;
 	}
 
-	public void calculBenefit() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
+	public double calculBenefit(){
+		return 0;
 	}
 
 	public float getBenefitRate() {
 		return 0;
+	}
+
+	public void echeance() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
 	}
 } 

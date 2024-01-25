@@ -56,14 +56,13 @@ private Account compte;
 	@Test
 	public void TestIfBenefitCalculIsGood() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
 		this.compte.creditAccount(100);
-		this.compte.calculBenefit();
-		assertEquals(this.compte.getCredit(), 100*this.compte.getBenefitRate()+100);
+		assertEquals(this.compte.calculBenefit(), 100*this.compte.getBenefitRate());
 	}
 	
 	@Test
 	public void TestIfEcheanceRunGood() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
 		this.compte.creditAccount(100);
-		this.compte.echance();
+		this.compte.echeance();
 		assertEquals(this.compte.getCredit(), 100*this.compte.getBenefitRate()+100);
 	}
 }
