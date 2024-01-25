@@ -34,10 +34,13 @@ public class SavingsAccount extends Account{
 	public float getBenefitRate() {
 		return this.benefit;
 	}
-	
+	 
 	@Override
-	public void calculBenefit() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
-		double c = this.getCredit()*this.getBenefitRate();
-		this.creditAccount(c);
+	public double calculBenefit(){
+		return this.getCredit()*this.getBenefitRate();
+	}
+	@Override
+	public void echeance() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
+		this.creditAccount(this.calculBenefit());
 	}
 }
