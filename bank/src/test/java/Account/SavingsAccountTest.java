@@ -52,4 +52,10 @@ private Account compte;
 	public void TestIfExceptionThrowsWhenDebitAValueSuperiorToPay() {
 		assertThrows(SoldeInferiorThanDebitException.class, () -> {this.compte.debitAccount(500.0);});
 	}
+	
+	@Test
+	public void TestIfBenefitCalculIsGood() {
+		this.compte.creditAccount(100);
+		assertEquals(this.compte.calculBenefit(), 100*this.getBenefitRate());
+	}
 }
