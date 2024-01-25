@@ -92,4 +92,11 @@ public class Account {
 	public List<Double> getListCredit() {
 		return this.listCredit;
 	}
+
+	public void calculBenefit() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
+	}
+
+	public float getBenefitRate() {
+		return 0;
+	}
 } 

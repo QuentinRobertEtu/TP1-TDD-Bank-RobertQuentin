@@ -1,5 +1,7 @@
 package Account;
 
+import Exception.CantCreditNegativeValueException;
+import Exception.CantCreditOver100000Exception;
 import Exception.CantDebitNegativeValueException;
 import Exception.CantDebitOver100000Exception;
 import Exception.SoldeInferiorThanDebitException;
@@ -26,5 +28,16 @@ public class SavingsAccount extends Account{
 				this.addDebitToList(d);
 			}
 		}
+	}
+	
+	@Override
+	public float getBenefitRate() {
+		return this.benefit;
+	}
+	
+	@Override
+	public void calculBenefit() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
+		double c = this.getCredit()*this.getBenefitRate();
+		this.creditAccount(c);
 	}
 }

@@ -54,8 +54,9 @@ private Account compte;
 	}
 	
 	@Test
-	public void TestIfBenefitCalculIsGood() {
+	public void TestIfBenefitCalculIsGood() throws CantCreditNegativeValueException, CantCreditOver100000Exception {
 		this.compte.creditAccount(100);
-		assertEquals(this.compte.calculBenefit(), 100*this.getBenefitRate());
+		this.compte.calculBenefit();
+		assertEquals(this.compte.getCredit(), 100*this.compte.getBenefitRate()+100);
 	}
 }
