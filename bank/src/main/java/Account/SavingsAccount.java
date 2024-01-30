@@ -34,7 +34,7 @@ public class SavingsAccount extends Account{
 	public float getBenefitRate() {
 		return this.benefit;
 	}
-	 
+	
 	@Override
 	public double calculBenefit(){
 		return this.getCredit()*this.getBenefitRate();
